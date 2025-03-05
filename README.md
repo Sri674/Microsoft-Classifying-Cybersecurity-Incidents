@@ -28,15 +28,11 @@ STEPS
 
              For majority of features in my dataset, i treated as categorical columns and  uses approaches like mode imputation and also filled the missing values with  "unknown".The Tool used widely in handling missing values is Pandas. Initially the columns with majority of null values is removed.
 
-     ii)FEATURE ENGINEERING:
+     ii)FEATURE IMPORTANCE:
 
-             Extracted New features like hour,day,month weekday from Timestamp feature and made that as new columns to better peformance for model
+             In this, I used Chi-Square test to find the most important features related to the target.I removed the features which are less importance.
 
-     iii)FEATURE IMPORTANCE:
-
-             Performed RandomForestClassifier to find the importance features that reason for  Target classes. By selecting 15 important features, rest are removed.
-
-     iv)DATA TRANSFORMATION:
+     iii)DATA TRANSFORMATION:
 
              Due to considering  all columns as categorical columns, i performed Target Encoding for all features. Reason to select this that unique values are not in order form, if it is in order form i would have gone for label encoding.
 
@@ -52,7 +48,7 @@ STEPS
 
     iii)MODEL TRAINING:
     
-              First done trial and error method to choose Best hyperparameter for ecah and every model. After Hyperparameter selection it is trained in models. 
+              First done trial and error method to choose Best hyperparameter for each and every model. After Hyperparameter selection it is trained in models. 
 
 4)MODEL EVALUATION:
 
@@ -62,11 +58,11 @@ STEPS
 
     ii)MODEL COMPARISON:
               
-              1)Accuracy: Random Forest has the highest accuracy (0.85), followed by Decision Tree (0.82) and XGBoost (0.82).
+              1)Accuracy: Random Forest has the highest accuracy (0.89), followed by Decision Tree and XGBoost.
               
-              2)Precision, Recall, and F1-Score: Random Forest also outperforms the others in the macro average precision, recall, and F1-score with values around 0.85 for all metrics. Decision Tree and XGBoost are more similar in performance, with a macro average around 0.82–0.83, which is lower than Random Forest.
+              2)Precision, Recall, and F1-Score: Random Forest and Decision Tree excelled in precision, recall, and F1-score across most classes, with Random Forest slightly outperforming. XGBoost performed well for class 1, while AdaBoost struggled, particularly with class 1 and recall for class 0.
               
-              3)Confusion Matrix:Random Forest does a better job of correctly classifying Class 0 and Class 2. It has higher precision and recall for these classes compared to the other two models.XGBoost performs well for Class 2, but struggles more with Class 0 and Class 1 compared to Random Forest. Decision Tree performs decently with Class 2, but its performance for Class 0 and Class 1 is worse than both Random Forest and XGBoost.
+              3)Confusion Matrix: Decision Tree and Random Forest show balanced performance, with Random Forest having slightly more accurate predictions, especially for class 0 and 2. XGBoost struggles with misclassifications for class 1, particularly with false positives. AdaBoost underperforms overall, especially for class 1, showing a high number of false positives and misclassifications for class 0.
 
               4)Conclusion: Based on the accuracy score, classification report, and confusion matrix, the Random Forest model is the best among the three. It has the highest accuracy and overall better performance across all metrics.
 
@@ -76,13 +72,13 @@ STEPS
 
 5)FINAL EVALUATION ON TEST DATA:
 
-      Once the model is finalized and optimized, I evaluated it on the test.csv dataset. and checked the accuracy score, final macro-F1 score, precision, and recall to assess how well the model generalizes to unseen data. By comparing this Random Forest model is performing decently well on the unseen test dataset with an accuracy of 79%. The model's strength lies in its ability to identify class 2 correctly (high recall), wheres class 0 and class 1 also performs good. Precision and F1 score too performs good.
+      Once the model is finalized and optimized, I evaluated it on the test.csv dataset. Random_forest is best model chosen from train dataset, when it is tested on unseen test data it gives a accuracy of 0.86. Precision,recall,f1-score too comes with good numbers in confusion matrix: class0,class1,class2 correctly identifies their respective classes in large number.
 
 6)CONCLUSION: 
 
     i)SUMMARY OF RESULTS:
                   
-                  The Random classifier performed better than other models with the good accuracy of 85%, when compare to another models.The model can predict the Cybersecurity Incident classes with a reasonable degree of accuracy. When done Evaluation on unseen test data it gives accuracy of 79%,and good result for precision, recall and F1 score, and overall prediction among three classess in confusion matrix seams to be good.
+                  The Random classifier performed better than other models with the good accuracy of 89%, when compare to another models.The model can predict the Cybersecurity Incident classes with a reasonable degree of accuracy. When done Evaluation on unseen test data it gives accuracy of 86%,and good result for precision, recall and F1 score, and overall prediction among three classess in confusion matrix seams to be good.
 
     ii)LIMITATIONS:
     
